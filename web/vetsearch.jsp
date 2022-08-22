@@ -1,0 +1,79 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2021/5/21
+  Time: 14:21
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>医生查询页面</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+</head>
+<body>
+
+<c:if test="${not empty user}">
+<%--    <h1>欢迎 ${user.name}</h1>--%>
+    <div class="head">
+        <h6><a href="/ph/loginOut">退出</a></h6>
+        <h2 align="center">社&nbsp;区&nbsp;宠&nbsp;物&nbsp;诊&nbsp;所</h2>
+            <a href="">医生管理</a>  <a href="">客户管理</a>
+    </div>
+<div id="content" align="center" >
+    <div class="sel">
+        <form action="${pageContext.request.contextPath}/vetServlet" method="post">
+    <table>
+        <tr>
+            <td>医生姓名：<input type="text" name="vName"></td>
+        </tr>
+        <tr>
+            <td>专业特长：<input type="text" name="sName"></td>
+        </tr>
+        <tr align="center">
+            <td>
+                <button type="submit"  name="m" value="search" style="margin: 17px">查询</button>
+                <button type="button">重置</button>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>
+                <a href="#" style="text-align: center">添加医生信息</a>
+            </td>
+        </tr>
+
+<%--            <td style="text-align: center"><a href="${pageContext.request.contextPath}/VetServlet?m=add">添加医生</a></td>--%>
+
+
+        <tr>
+            <td style="text-align: center;color: red">${flag}</td>
+        </tr>
+    </table>
+          <div style="align-content: center">
+
+          </div>
+
+        </form>
+    </div>
+</div>
+<div class="footer"></div>
+</c:if>
+<c:if test="${empty user}">
+    <h1>您还没有登录呢！</h1>
+    <h3><span id="sp">3</span>秒后自动跳转到<a href="/ph/index.jsp">登录页面</a></h3>
+    <script>
+        //setTimeout() 方法用于在指定的毫秒数后调用函数或执行表达式。
+        setTimeout(function () {
+            //assign()方法加载一个新的文档。
+            location.assign("${pageContext.request.contextPath}")
+        },3000)
+        //setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式
+        setInterval(function () {
+            sp.innerText--
+        },1000)
+    </script>
+</c:if>
+</body>
+</html>

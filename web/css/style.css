@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+
+    background: url("../img/cw.jpg") no-repeat;
+    background-size: 100%;
+}
+.head{
+    width: 100%;
+    height: 20%;
+
+}
+.head h2{
+    padding-top: 35px;
+    color: #f5c6cb;
+}
+.head h6{
+    float: right;
+}
+.head a{
+    padding-bottom: 2px;
+}
+#content{
+    width: 100%;
+    height: 70%;
+    padding-top: 30px;
+    color: #ffffff;
+    /*background-color: */
+    /*background: url("../img/cw.jpg");*/
+}
+.sel{
+   padding: 60px;
+}
+.sel input{
+    margin: 5px;
+}
+.footer{
+    width: 100%;
+    height: 10%;
+    /*background-color: #c82333;*/
+}
